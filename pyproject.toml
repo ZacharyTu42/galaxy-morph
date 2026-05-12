@@ -54,3 +54,50 @@ ignore = [
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
+
+# ─── mypy ──────────────────────────────────────────────────────────
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unreachable = true
+warn_redundant_casts = true
+show_error_codes = true
+pretty = true
+
+# Third-party libraries without type stubs — don't fail on them
+[[tool.mypy.overrides]]
+module = [
+  "astropy.*",
+  "wandb.*",
+  "hydra.*",
+  "escnn.*",
+  "matplotlib.*",
+]
+ignore_missing_imports = true
+
+# Tests can be looser
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+# ─── pytest ────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = [
+  "--strict-markers",      # typos in marker names fail loudly
+  "--strict-config",
+  "-ra",                   # show short summary of all non-passing tests
+  "--cov=galaxy_morph",
+  "--cov-report=term-missing",
+  "--cov-report=xml",      # for CI/codecov
+]
+markers = [
+  "slow: tests that take >5s (deselect with '-m \"not slow\"')",
+  "gpu: tests that require a GPU",
+  "integration: tests that hit the real dataset or network",
+]
+filterwarnings = [
+  "error",                          # treat warnings as errors by default
+  "ignore::DeprecationWarning:torch.*",  # but ignore noisy upstream ones
+]

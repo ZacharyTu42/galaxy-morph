@@ -1,0 +1,108 @@
+# ─── Python ────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments (if anyone creates one locally)
+.venv/
+venv/
+env/
+ENV/
+
+# ─── Testing & coverage ────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# ─── Type checkers & linters ───────────────────────────────────────
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# ─── Jupyter ───────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# ─── IDE / editor ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# ─── Conda / env ───────────────────────────────────────────────────
+# Don't ignore environment.yml or conda-lock.yml — those should be committed
+# But ignore local conda env directories if someone creates one in-repo
+.conda/
+
+# ─── Data ──────────────────────────────────────────────────────────
+data/
+!data/README.md       # keep the README explaining how to populate data/
+!data/.gitkeep
+
+# Common data file extensions, just in case they end up outside data/
+*.fits
+*.fits.gz
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.csv             # comment out if you have small CSVs you want to commit
+*.tsv
+
+# ─── Model artifacts ───────────────────────────────────────────────
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+models/checkpoints/
+outputs/          # Hydra default output dir
+multirun/         # Hydra multi-run output dir
+
+# ─── Experiment tracking ───────────────────────────────────────────
+wandb/
+mlruns/
+lightning_logs/
+tb_logs/
+tensorboard/
+
+# ─── Secrets ───────────────────────────────────────────────────────
+.env
+.env.local
+*.secret
+secrets/
+credentials.json
+*.pem
+*.key
+
+# ─── Docs build artifacts ──────────────────────────────────────────
+docs/_build/
+docs/api/_autosummary/
+
+# ─── Misc ──────────────────────────────────────────────────────────
+*.log
+.cache/
+tmp/
+scratch/          # for ad-hoc experiments you don't want to commit

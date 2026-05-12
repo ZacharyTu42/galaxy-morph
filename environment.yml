@@ -1,0 +1,34 @@
+name: galaxy-morph
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.11
+  - pip
+  # Core science
+  - numpy
+  - scipy
+  - cython
+  - matplotlib
+  - pandas
+  - h5py
+  # Astronomy
+  - astropy
+  - astroquery
+  # ML
+  - pytorch>=2.2
+  - torchvision
+  # Dev tools
+  - pytest>=8
+  - pytest-cov
+  - pytest-xdist
+  - ruff>=0.6
+  - mypy>=1.11
+  - pre-commit
+  # Things that are pip-only or fresher on PyPI
+  - pip:
+    - hydra-core
+    - wandb
+    - fastapi
+    - "pydantic>=2"
+    - typer

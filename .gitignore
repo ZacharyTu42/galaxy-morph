@@ -53,9 +53,9 @@ Thumbs.db          # Windows
 .conda/
 
 # ─── Data ──────────────────────────────────────────────────────────
-data/
-!data/README.md       # keep the README explaining how to populate data/
-!data/.gitkeep
+/data/
+!/data/README.md       # keep the README explaining how to populate data/
+!/data/.gitkeep
 
 # Common data file extensions, just in case they end up outside data/
 *.fits

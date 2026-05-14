@@ -26,5 +26,7 @@ repos:
           - numpy
           - torch
           - pydantic
+          - types-requests
+          - types-tqdm
         args: [--config-file=pyproject.toml]
         files: ^src/

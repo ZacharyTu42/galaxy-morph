@@ -1,13 +1,17 @@
 """Download Galaxy10 DECaLS dataset."""
+
 from __future__ import annotations
+
 import hashlib
 from pathlib import Path
+
 import requests
 from tqdm import tqdm
 
 GALAXY10_URL = "https://zenodo.org/records/10845026/files/Galaxy10_DECals.h5"
 GALAXY10_SHA256 = "19AEFC477C41BB7F77FF07599A6B82A038DC042F889A111B0D4D98BB755C1571"
 GALAXY10_FILENAME = "Galaxy10_DECals.h5"
+
 
 def download_galaxy10(dest_dir: Path, force: bool = False) -> Path:
     """Download Galaxy10 DECaLS HDF5 file if not already present.
@@ -41,14 +45,13 @@ def download_galaxy10(dest_dir: Path, force: bool = False) -> Path:
 
     return dest_path
 
+
 def _download_with_progress(url: str, dest: Path) -> None:
     response = requests.get(url, stream=True, timeout=60)
     response.raise_for_status()
     total = int(response.headers.get("content-length", 0))
 
-    with dest.open("wb") as f, tqdm(
-        total=total, unit="B", unit_scale=True, desc=dest.name
-    ) as pbar:
+    with dest.open("wb") as f, tqdm(total=total, unit="B", unit_scale=True, desc=dest.name) as pbar:
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
             pbar.update(len(chunk))

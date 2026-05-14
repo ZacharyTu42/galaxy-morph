@@ -12,6 +12,7 @@ dependencies:
   - matplotlib
   - pandas
   - h5py
+  - tqdm
   # Astronomy
   - astropy
   - astroquery

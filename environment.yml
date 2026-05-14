@@ -33,3 +33,5 @@ dependencies:
     - fastapi
     - "pydantic>=2"
     - typer
+    - types-requests
+    - types-tqdm

@@ -82,6 +82,8 @@ module = [
   "hydra.*",
   "escnn.*",
   "matplotlib.*",
+  "typer.*",
+  "sklearn.*",
 ]
 ignore_missing_imports = true
 

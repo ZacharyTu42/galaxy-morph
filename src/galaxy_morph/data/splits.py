@@ -1,4 +1,5 @@
 """Train/val/test split utilities."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -6,21 +7,23 @@ from dataclasses import dataclass
 import numpy as np
 from sklearn.model_selection import train_test_split
 
+
 @dataclass(frozen=True)
 class DataSplits:
     train: np.ndarray
     val: np.ndarray
     test: np.ndarray
-    
+
+
 def make_splits(
-        labels: np.ndarray,
-        *,
-        val_frac: float = 0.1,
-        test_frac: float = 0.1,
-        seed: int = 2000,
+    labels: np.ndarray,
+    *,
+    val_frac: float = 0.1,
+    test_frac: float = 0.1,
+    seed: int = 2000,
 ) -> DataSplits:
-    """"Stratified train/val/test split.
-    
+    """ "Stratified train/val/test split.
+
     Returns indices into the original dataset, not the data itself.
     Stratification ensures class proportions are preserved across splits.
     """

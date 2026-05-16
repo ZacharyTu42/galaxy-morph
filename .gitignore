@@ -53,7 +53,7 @@ Thumbs.db          # Windows
 .conda/
 
 # ─── Data ──────────────────────────────────────────────────────────
-/data/
+/data/**/*.h5
 !/data/README.md       # keep the README explaining how to populate data/
 !/data/.gitkeep
 

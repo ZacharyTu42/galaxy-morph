@@ -1,4 +1,4 @@
-.PHONY: env env-update lock install test test-fast lint format typecheck check clean
+.PHONY: env env-update lock install test test-fast lint format typecheck check clean download-galaxy10
 
 # One-time environment creation
 env:
@@ -38,3 +38,6 @@ check: lint typecheck test-fast
 
 clean:
 	rm -rf build dist *.egg-info .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage coverage.xml
+
+download-galaxy10:
+	galaxy-morph download

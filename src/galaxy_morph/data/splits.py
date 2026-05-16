@@ -22,7 +22,7 @@ def make_splits(
     test_frac: float = 0.1,
     seed: int = 2000,
 ) -> DataSplits:
-    """ "Stratified train/val/test split.
+    """Stratified train/val/test split.
 
     Returns indices into the original dataset, not the data itself.
     Stratification ensures class proportions are preserved across splits.

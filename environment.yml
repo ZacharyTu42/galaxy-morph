@@ -19,6 +19,7 @@ dependencies:
   # ML
   - pytorch>=2.2
   - torchvision
+  - scikit-learn
   # Dev tools
   - pytest>=8
   - pytest-cov

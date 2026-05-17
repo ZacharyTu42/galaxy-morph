@@ -44,7 +44,9 @@ class Galaxy10Dataset(Dataset[tuple[torch.Tensor, int]]):
 
         # Load labels and indices from the HDF5 file
         with h5py.File(self.h5_path, "r") as f:
-            all_labels = f["labels"][:].astype(np.int64)
+            labels_ds = f["labels"]
+            assert isinstance(labels_ds, h5py.Dataset)
+            all_labels = labels_ds[:].astype(np.int64)
 
             self.indices = indices if indices is not None else np.arange(len(all_labels))
             self.labels = all_labels[self.indices]
@@ -66,7 +68,9 @@ class Galaxy10Dataset(Dataset[tuple[torch.Tensor, int]]):
         f = self._get_file()
 
         # Read image as uint8
-        img = f["images"][true_idx]  # shape (H, W, C), dtype uint8
+        images_ds = f["images"]
+        assert isinstance(images_ds, h5py.Dataset)
+        img = images_ds[true_idx]  # shape (H, W, C), dtype uint8
         label = int(self.labels[idx])
 
         # Convert to float32 tensor (C, H, W)

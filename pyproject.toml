@@ -87,6 +87,9 @@ module = [
 ]
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+module = "galaxy_morph.cli"
+disable_error_code = ["misc"]
 # Tests can be looser
 [[tool.mypy.overrides]]
 module = "tests.*"

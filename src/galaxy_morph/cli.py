@@ -7,7 +7,7 @@ from .data.download import download_galaxy10
 app = typer.Typer()
 
 
-@app.command()  # type: ignore[misc]
+@app.command()
 def download(dest: Path = Path("data/raw"), force: bool = False) -> None:
     """Download the Galaxy10 DECaLS dataset from Zenodo."""
     try:

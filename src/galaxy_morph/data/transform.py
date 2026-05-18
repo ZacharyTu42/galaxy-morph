@@ -8,7 +8,7 @@ GALAXY10_MEAN = (0.16747765243053436, 0.16261132061481476, 0.15892967581748962)
 GALAXY10_STD = (0.12869802117347717, 0.11804956942796707, 0.11161898076534271)
 
 
-def build_train_transform() -> T.Transform:
+def build_train_transform(image_size: int = 224) -> T.Transform:
     """Augmentation pipeline for training.
 
     Galaxy images are rotation- and reflection-invariant, so we exploit

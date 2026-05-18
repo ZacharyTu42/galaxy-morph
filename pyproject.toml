@@ -12,7 +12,7 @@ dependencies = [
   "fastapi",
   "pydantic>=2",
   "typer",
-  "sklearn",
+  "scikit-learn",
 ]
 
 [project.optional-dependencies]
@@ -86,6 +86,7 @@ module = [
   "typer.*",
   "sklearn.*",
   "h5py.*",
+  "torchvision.*",
 ]
 ignore_missing_imports = true
 

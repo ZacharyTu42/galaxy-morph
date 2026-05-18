@@ -44,7 +44,7 @@ class Galaxy10Dataset(Dataset[tuple[torch.Tensor, int]]):
 
         # Load labels and indices from the HDF5 file
         with h5py.File(self.h5_path, "r") as f:
-            labels_ds = f["labels"]
+            labels_ds = f["ans"]
             assert isinstance(labels_ds, h5py.Dataset)
             all_labels = labels_ds[:].astype(np.int64)
 
